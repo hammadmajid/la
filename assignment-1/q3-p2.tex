@@ -6,4 +6,31 @@
 \end{pmatrix}
 \]
 
-% Solution to be provided
+\textbf{Solution:}
+
+Let $A = \begin{pmatrix}
+\cos\theta & \sin\theta\\
+-\sin\theta & \cos\theta
+\end{pmatrix}$
+
+For a $2 \times 2$ matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the inverse is $\frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$
+
+Calculate the determinant:
+\begin{align}
+\det(A) &= (\cos\theta)(\cos\theta) - (\sin\theta)(-\sin\theta)\\
+&= \cos^2\theta + \sin^2\theta\\
+&= 1 \quad \text{(Pythagorean identity)}
+\end{align}
+
+Therefore:
+\[
+A^{-1} = \frac{1}{1}\begin{pmatrix}
+\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta
+\end{pmatrix} = \begin{pmatrix}
+\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta
+\end{pmatrix}
+\]
+
+This is the rotation matrix for angle $-\theta$, which makes sense since rotating by $\theta$ and then by $-\theta$ gives the identity.
