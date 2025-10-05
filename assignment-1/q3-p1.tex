@@ -1,49 +1,49 @@
 \subsection*{(i)}
 \[
-\begin{pmatrix}
-\frac{1}{2}(e^x + e^{-x}) & \frac{1}{2}(e^x - e^{-x})\\
-\frac{1}{2}(e^x - e^{-x}) & \frac{1}{2}(e^x + e^{-x})
-\end{pmatrix}
+	\begin{pmatrix}
+		\frac{1}{2}(e^x + e^{-x}) & \frac{1}{2}(e^x - e^{-x}) \\
+		\frac{1}{2}(e^x - e^{-x}) & \frac{1}{2}(e^x + e^{-x})
+	\end{pmatrix}
 \]
 
 \textbf{Solution:}
 
 Let $A = \begin{pmatrix}
-\frac{1}{2}(e^x + e^{-x}) & \frac{1}{2}(e^x - e^{-x})\\
-\frac{1}{2}(e^x - e^{-x}) & \frac{1}{2}(e^x + e^{-x})
-\end{pmatrix}$
+		\frac{1}{2}(e^x + e^{-x}) & \frac{1}{2}(e^x - e^{-x}) \\
+		\frac{1}{2}(e^x - e^{-x}) & \frac{1}{2}(e^x + e^{-x})
+	\end{pmatrix}$
 
 Let $\cosh x = \frac{1}{2}(e^x + e^{-x})$ and $\sinh x = \frac{1}{2}(e^x - e^{-x})$
 
 Then $A = \begin{pmatrix}
-\cosh x & \sinh x\\
-\sinh x & \cosh x
-\end{pmatrix}$
+		\cosh x & \sinh x \\
+		\sinh x & \cosh x
+	\end{pmatrix}$
 
 For a $2 \times 2$ matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the inverse is $\frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$
 
 Calculate the determinant:
 \begin{align}
-\det(A) &= (\cosh x)(\cosh x) - (\sinh x)(\sinh x)\\
-&= \cosh^2 x - \sinh^2 x\\
-&= 1 \quad \text{(hyperbolic identity)}
+	\det(A) & = (\cosh x)(\cosh x) - (\sinh x)(\sinh x) \\
+	        & = \cosh^2 x - \sinh^2 x                   \\
+	        & = 1 \quad \text{(hyperbolic identity)}
 \end{align}
 
 Therefore:
 \[
-A^{-1} = \frac{1}{1}\begin{pmatrix}
-\cosh x & -\sinh x\\
--\sinh x & \cosh x
-\end{pmatrix} = \begin{pmatrix}
-\cosh x & -\sinh x\\
--\sinh x & \cosh x
-\end{pmatrix}
+	A^{-1} = \frac{1}{1}\begin{pmatrix}
+		\cosh x  & -\sinh x \\
+		-\sinh x & \cosh x
+	\end{pmatrix} = \begin{pmatrix}
+		\cosh x  & -\sinh x \\
+		-\sinh x & \cosh x
+	\end{pmatrix}
 \]
 
 Substituting back:
 \[
-A^{-1} = \begin{pmatrix}
-\frac{1}{2}(e^x + e^{-x}) & -\frac{1}{2}(e^x - e^{-x})\\
--\frac{1}{2}(e^x - e^{-x}) & \frac{1}{2}(e^x + e^{-x})
-\end{pmatrix}
+	A^{-1} = \begin{pmatrix}
+		\frac{1}{2}(e^x + e^{-x})  & -\frac{1}{2}(e^x - e^{-x}) \\
+		-\frac{1}{2}(e^x - e^{-x}) & \frac{1}{2}(e^x + e^{-x})
+	\end{pmatrix}
 \]

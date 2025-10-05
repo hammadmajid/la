@@ -1,10 +1,10 @@
 \subsection*{(vi)}
 \[
-\begin{pmatrix}
-\frac{1}{5} & \frac{1}{5} & -\frac{2}{5}\\
-\frac{2}{5} & -\frac{3}{5} & -\frac{3}{10}\\
-\frac{1}{5} & -\frac{4}{5} & \frac{1}{10}
-\end{pmatrix}
+	\begin{pmatrix}
+		\frac{1}{5} & \frac{1}{5}  & -\frac{2}{5}  \\
+		\frac{2}{5} & -\frac{3}{5} & -\frac{3}{10} \\
+		\frac{1}{5} & -\frac{4}{5} & \frac{1}{10}
+	\end{pmatrix}
 \]
 
 \textbf{Solution:}
@@ -12,63 +12,63 @@
 To find the inverse, we use the augmented matrix method. First, let's multiply by 10 to clear denominators:
 
 \[
-\left(\begin{array}{ccc|ccc}
-2 & 2 & -4 & 10 & 0 & 0\\
-4 & -6 & -3 & 0 & 10 & 0\\
-2 & -8 & 1 & 0 & 0 & 10
-\end{array}\right)
+	\left(\begin{array}{ccc|ccc}
+			2 & 2  & -4 & 10 & 0  & 0  \\
+			4 & -6 & -3 & 0  & 10 & 0  \\
+			2 & -8 & 1  & 0  & 0  & 10
+		\end{array}\right)
 \]
 
 $R_1 \leftarrow \frac{1}{2}R_1$:
 \[
-\left(\begin{array}{ccc|ccc}
-1 & 1 & -2 & 5 & 0 & 0\\
-4 & -6 & -3 & 0 & 10 & 0\\
-2 & -8 & 1 & 0 & 0 & 10
-\end{array}\right)
+	\left(\begin{array}{ccc|ccc}
+			1 & 1  & -2 & 5 & 0  & 0  \\
+			4 & -6 & -3 & 0 & 10 & 0  \\
+			2 & -8 & 1  & 0 & 0  & 10
+		\end{array}\right)
 \]
 
 $R_2 \leftarrow R_2 - 4R_1$, $R_3 \leftarrow R_3 - 2R_1$:
 \[
-\left(\begin{array}{ccc|ccc}
-1 & 1 & -2 & 5 & 0 & 0\\
-0 & -10 & 5 & -20 & 10 & 0\\
-0 & -10 & 5 & -10 & 0 & 10
-\end{array}\right)
+	\left(\begin{array}{ccc|ccc}
+			1 & 1   & -2 & 5   & 0  & 0  \\
+			0 & -10 & 5  & -20 & 10 & 0  \\
+			0 & -10 & 5  & -10 & 0  & 10
+		\end{array}\right)
 \]
 
 $R_2 \leftarrow -\frac{1}{10}R_2$:
 \[
-\left(\begin{array}{ccc|ccc}
-1 & 1 & -2 & 5 & 0 & 0\\
-0 & 1 & -\frac{1}{2} & 2 & -1 & 0\\
-0 & -10 & 5 & -10 & 0 & 10
-\end{array}\right)
+	\left(\begin{array}{ccc|ccc}
+			1 & 1   & -2           & 5   & 0  & 0  \\
+			0 & 1   & -\frac{1}{2} & 2   & -1 & 0  \\
+			0 & -10 & 5            & -10 & 0  & 10
+		\end{array}\right)
 \]
 
 $R_3 \leftarrow R_3 + 10R_2$:
 \[
-\left(\begin{array}{ccc|ccc}
-1 & 1 & -2 & 5 & 0 & 0\\
-0 & 1 & -\frac{1}{2} & 2 & -1 & 0\\
-0 & 0 & 0 & 10 & -10 & 10
-\end{array}\right)
+	\left(\begin{array}{ccc|ccc}
+			1 & 1 & -2           & 5  & 0   & 0  \\
+			0 & 1 & -\frac{1}{2} & 2  & -1  & 0  \\
+			0 & 0 & 0            & 10 & -10 & 10
+		\end{array}\right)
 \]
 
 Since the third row has a zero in the (3,3) position but non-zero entries in the augmented part, this matrix is not invertible. Let me verify by checking the determinant of the original matrix:
 
 For matrix $A = \begin{pmatrix}
-\frac{1}{5} & \frac{1}{5} & -\frac{2}{5}\\
-\frac{2}{5} & -\frac{3}{5} & -\frac{3}{10}\\
-\frac{1}{5} & -\frac{4}{5} & \frac{1}{10}
-\end{pmatrix}$
+		\frac{1}{5} & \frac{1}{5}  & -\frac{2}{5}  \\
+		\frac{2}{5} & -\frac{3}{5} & -\frac{3}{10} \\
+		\frac{1}{5} & -\frac{4}{5} & \frac{1}{10}
+	\end{pmatrix}$
 
 Multiplying by 50 to clear all denominators:
 $50A = \begin{pmatrix}
-10 & 10 & -20\\
-20 & -30 & -15\\
-10 & -40 & 5
-\end{pmatrix}$
+		10 & 10  & -20 \\
+		20 & -30 & -15 \\
+		10 & -40 & 5
+	\end{pmatrix}$
 
 $\det(50A) = 10(-30 \cdot 5 - (-15) \cdot (-40)) - 10(20 \cdot 5 - (-15) \cdot 10) + (-20)(20 \cdot (-40) - (-30) \cdot 10)$
 $= 10(-150 - 600) - 10(100 + 150) - 20(-800 + 300)$
