@@ -1,62 +1,35 @@
 \subsection*{(ii)} $b_1 = -4, b_2 = 6$
 
-\textbf{Solution using Matrix Method (Cramer's Rule):}
-
-Given system:
 \begin{align}
 	4x_1 - 7x_2 & = -4 \\
 	x_1 + 2x_2  & = 6
 \end{align}
 
-Write in matrix form $Ax = b$ where:
-\[
-	A = \begin{pmatrix}
-		4 & -7 \\
-		1 & 2
-	\end{pmatrix}, \quad
-	x = \begin{pmatrix}
-		x_1 \\
-		x_2
-	\end{pmatrix}, \quad
-	b = \begin{pmatrix}
-		-4 \\
-		6
-	\end{pmatrix}
-\]
+$A = \begin{pmatrix}
+	4 & -7 \\
+	1 & 2
+\end{pmatrix}, \quad b = \begin{pmatrix}
+	-4 \\
+	6
+\end{pmatrix}$
 
-The determinant of $A$ is:
-\[
-	\det(A) = 4(2) - (-7)(1) = 8 + 7 = 15
-\]
+$A^{-1} = \frac{1}{15}\begin{pmatrix}
+	2 & 7 \\
+	-1 & 4
+\end{pmatrix}$
 
-Using Cramer's rule:
+$x = A^{-1}b = \frac{1}{15}\begin{pmatrix}
+	2 & 7 \\
+	-1 & 4
+\end{pmatrix}\begin{pmatrix}
+	-4 \\
+	6
+\end{pmatrix} = \frac{1}{15}\begin{pmatrix}
+	-8 + 42 \\
+	4 + 24
+\end{pmatrix} = \frac{1}{15}\begin{pmatrix}
+	34 \\
+	28
+\end{pmatrix}$
 
-For $x_1$, replace the first column of $A$ with $b$:
-\[
-	A_1 = \begin{pmatrix}
-		-4 & -7 \\
-		6  & 2
-	\end{pmatrix}
-\]
-\[
-	\det(A_1) = (-4)(2) - (-7)(6) = -8 + 42 = 34
-\]
-\[
-	x_1 = \frac{34}{15}
-\]
-
-For $x_2$, replace the second column of $A$ with $b$:
-\[
-	A_2 = \begin{pmatrix}
-		4 & -4 \\
-		1 & 6
-	\end{pmatrix}
-\]
-\[
-	\det(A_2) = 4(6) - (-4)(1) = 24 + 4 = 28
-\]
-\[
-	x_2 = \frac{28}{15}
-\]
-
-Therefore, the solution is $\boxed{\left(x_1, x_2\right) = \left(\frac{34}{15}, \frac{28}{15}\right)}$.
+$\boxed{(x_1, x_2) = \left(\frac{34}{15}, \frac{28}{15}\right)}$

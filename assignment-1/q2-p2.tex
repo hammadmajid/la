@@ -5,9 +5,6 @@
 	8x_1 + x_2 + 4x_3   & = -1
 \end{align*}
 
-\textbf{Solution using Gaussian Elimination:}
-
-Setting up the augmented matrix:
 \[
 	\left(\begin{array}{ccc|c}
 			2  & 2 & 2 & 0  \\
@@ -16,7 +13,7 @@ Setting up the augmented matrix:
 		\end{array}\right)
 \]
 
-Step 1: $R_1 \leftarrow \frac{1}{2}R_1$ (make leading coefficient 1)
+$R_1 \leftarrow \frac{1}{2}R_1$:
 \[
 	\left(\begin{array}{ccc|c}
 			1  & 1 & 1 & 0  \\
@@ -25,7 +22,7 @@ Step 1: $R_1 \leftarrow \frac{1}{2}R_1$ (make leading coefficient 1)
 		\end{array}\right)
 \]
 
-Step 2: $R_2 \leftarrow R_2 + 2R_1$ and $R_3 \leftarrow R_3 - 8R_1$ (eliminate below first pivot)
+$R_2 \leftarrow R_2 + 2R_1$, $R_3 \leftarrow R_3 - 8R_1$:
 \[
 	\left(\begin{array}{ccc|c}
 			1 & 1  & 1  & 0  \\
@@ -34,7 +31,7 @@ Step 2: $R_2 \leftarrow R_2 + 2R_1$ and $R_3 \leftarrow R_3 - 8R_1$ (eliminate b
 		\end{array}\right)
 \]
 
-Step 3: $R_3 \leftarrow R_3 + R_2$ (eliminate below second pivot)
+$R_3 \leftarrow R_3 + R_2$:
 \[
 	\left(\begin{array}{ccc|c}
 			1 & 1 & 1 & 0 \\
@@ -43,7 +40,7 @@ Step 3: $R_3 \leftarrow R_3 + R_2$ (eliminate below second pivot)
 		\end{array}\right)
 \]
 
-Step 4: $R_2 \leftarrow \frac{1}{7}R_2$ (make leading coefficient 1)
+$R_2 \leftarrow \frac{1}{7}R_2$:
 \[
 	\left(\begin{array}{ccc|c}
 			1 & 1 & 1           & 0           \\
@@ -52,31 +49,8 @@ Step 4: $R_2 \leftarrow \frac{1}{7}R_2$ (make leading coefficient 1)
 		\end{array}\right)
 \]
 
-Since we have a row of zeros, the system has infinitely many solutions. Let $x_3 = t$ be a free parameter.
+Let $x_3 = t$. From row 2: $x_2 + \frac{4t}{7} = \frac{1}{7} \Rightarrow x_2 = \frac{1-4t}{7}$
 
-From the second row: $x_2 + \frac{4}{7}x_3 = \frac{1}{7}$
-\begin{align*}
-	x_2 + \frac{4t}{7} & = \frac{1}{7}                                 \\
-	x_2                & = \frac{1}{7} - \frac{4t}{7} = \frac{1-4t}{7}
-\end{align*}
+From row 1: $x_1 + x_2 + x_3 = 0 \Rightarrow x_1 = -\frac{1-4t}{7} - t = \frac{-1-3t}{7}$
 
-From the first row: $x_1 + x_2 + x_3 = 0$
-\begin{align*}
-	x_1 + \frac{1-4t}{7} + t & = 0                                                             \\
-	x_1                      & = -\frac{1-4t}{7} - t = -\frac{1-4t}{7} - \frac{7t}{7}          \\
-	x_1                      & = \frac{-(1-4t) - 7t}{7} = \frac{-1+4t-7t}{7} = \frac{-1-3t}{7}
-\end{align*}
-
-Therefore, the general solution is:
-\[
-	\boxed{(x_1, x_2, x_3) = \left(\frac{-1-3t}{7}, \frac{1-4t}{7}, t\right)}
-\]
-where $t \in \mathbb{R}$ is an arbitrary parameter.
-
-\textbf{Verification with $t = 0$:}
-For $t = 0$: $(x_1, x_2, x_3) = \left(-\frac{1}{7}, \frac{1}{7}, 0\right)$
-\begin{align*}
-	\text{Equation 1:} \quad 2\left(-\frac{1}{7}\right) + 2\left(\frac{1}{7}\right) + 2(0)  & = -\frac{2}{7} + \frac{2}{7} + 0 = 0 \quad \checkmark  \\
-	\text{Equation 2:} \quad -2\left(-\frac{1}{7}\right) + 5\left(\frac{1}{7}\right) + 2(0) & = \frac{2}{7} + \frac{5}{7} + 0 = 1 \quad \checkmark   \\
-	\text{Equation 3:} \quad 8\left(-\frac{1}{7}\right) + \frac{1}{7} + 4(0)                & = -\frac{8}{7} + \frac{1}{7} + 0 = -1 \quad \checkmark
-\end{align*}
+$\boxed{(x_1, x_2, x_3) = \left(\frac{-1-3t}{7}, \frac{1-4t}{7}, t\right)}$
