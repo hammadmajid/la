@@ -1,3 +1,67 @@
 \subsection*{(i)} $b_1 = 0, b_2 = 1$
 
-% Solution to be provided
+\textbf{Solution using Matrix Method (Cramer's Rule):}
+
+Given system:
+\begin{align}
+4x_1 - 7x_2 &= 0\\
+x_1 + 2x_2 &= 1
+\end{align}
+
+Write in matrix form $Ax = b$ where:
+\[
+A = \begin{pmatrix}
+4 & -7\\
+1 & 2
+\end{pmatrix}, \quad
+x = \begin{pmatrix}
+x_1\\
+x_2
+\end{pmatrix}, \quad
+b = \begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+\]
+
+Calculate the determinant of $A$:
+\[
+\det(A) = 4(2) - (-7)(1) = 8 + 7 = 15
+\]
+
+Since $\det(A) \neq 0$, the system has a unique solution.
+
+Using Cramer's rule:
+\[
+x_1 = \frac{\det(A_1)}{\det(A)}, \quad x_2 = \frac{\det(A_2)}{\det(A)}
+\]
+
+For $x_1$, replace the first column of $A$ with $b$:
+\[
+A_1 = \begin{pmatrix}
+0 & -7\\
+1 & 2
+\end{pmatrix}
+\]
+\[
+\det(A_1) = 0(2) - (-7)(1) = 0 + 7 = 7
+\]
+\[
+x_1 = \frac{7}{15}
+\]
+
+For $x_2$, replace the second column of $A$ with $b$:
+\[
+A_2 = \begin{pmatrix}
+4 & 0\\
+1 & 1
+\end{pmatrix}
+\]
+\[
+\det(A_2) = 4(1) - 0(1) = 4
+\]
+\[
+x_2 = \frac{4}{15}
+\]
+
+Therefore, the solution is $\boxed{\left(x_1, x_2\right) = \left(\frac{7}{15}, \frac{4}{15}\right)}$.
