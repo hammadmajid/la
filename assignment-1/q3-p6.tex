@@ -7,8 +7,49 @@
 	\end{pmatrix}
 \]
 
-$\det(A) = \frac{1}{5}(-\frac{3}{5} \cdot \frac{1}{10} - (-\frac{3}{10}) \cdot (-\frac{4}{5})) - \frac{1}{5}(\frac{2}{5} \cdot \frac{1}{10} - (-\frac{3}{10}) \cdot \frac{1}{5}) + (-\frac{2}{5})(\frac{2}{5} \cdot (-\frac{4}{5}) - (-\frac{3}{5}) \cdot \frac{1}{5})$
+Multiply by 10 to avoid fractions:
+\[
+	\left(\begin{array}{ccc|ccc}
+			2 & 2  & -4 & 10 & 0  & 0  \\
+			4 & -6 & -3 & 0  & 10 & 0  \\
+			2 & -8 & 1  & 0  & 0  & 10
+		\end{array}\right)
+\]
 
-After calculation: $\det(A) = 0$
+$R_1 \times \frac{1}{2}$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & 1  & -2 & 5 & 0  & 0  \\
+			4 & -6 & -3 & 0 & 10 & 0  \\
+			2 & -8 & 1  & 0 & 0  & 10
+		\end{array}\right)
+\]
 
-The matrix is not invertible (singular).
+$R_2 - 4R_1$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & 1   & -2 & 5   & 0  & 0  \\
+			0 & -10 & 5  & -20 & 10 & 0  \\
+			2 & -8  & 1  & 0   & 0  & 10
+		\end{array}\right)
+\]
+
+$R_3 - 2R_1$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & 1   & -2 & 5   & 0  & 0  \\
+			0 & -10 & 5  & -20 & 10 & 0  \\
+			0 & -10 & 5  & -10 & 0  & 10
+		\end{array}\right)
+\]
+
+$R_3 - R_2$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & 1   & -2 & 5   & 0  & 0  \\
+			0 & -10 & 5  & -20 & 10 & 0  \\
+			0 & 0   & 0  & 10  & -10 & 10
+		\end{array}\right)
+\]
+
+We have a row with all zeros in the left matrix so the original matrix has no inverse.

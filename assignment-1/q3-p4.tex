@@ -7,9 +7,48 @@
 	\end{pmatrix}
 \]
 
-$\det(A) = -1(4 \cdot (-9) - 1 \cdot 2) - 3(2 \cdot (-9) - 1 \cdot (-4)) + (-4)(2 \cdot 2 - 4 \cdot (-4))$
-$= -1(-36 - 2) - 3(-18 + 4) - 4(4 + 16)$
-$= -1(-38) - 3(-14) - 4(20)$
-$= 38 + 42 - 80 = 0$
+\[
+	\left(\begin{array}{ccc|ccc}
+			-1 & 3 & -4 & 1 & 0 & 0 \\
+			2  & 4 & 1  & 0 & 1 & 0 \\
+			-4 & 2 & -9 & 0 & 0 & 1
+		\end{array}\right)
+\]
 
-The matrix is not invertible (singular).
+$R_1 \times (-1)$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & -3 & 4  & -1 & 0 & 0 \\
+			2 & 4  & 1  & 0  & 1 & 0 \\
+			-4 & 2  & -9 & 0  & 0 & 1
+		\end{array}\right)
+\]
+
+$R_2 - 2R_1$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & -3 & 4  & -1 & 0 & 0 \\
+			0 & 10 & -7 & 2  & 1 & 0 \\
+			-4 & 2  & -9 & 0  & 0 & 1
+		\end{array}\right)
+\]
+
+$R_3 + 4R_1$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & -3  & 4   & -1 & 0 & 0 \\
+			0 & 10  & -7  & 2  & 1 & 0 \\
+			0 & -10 & 7   & -4 & 0 & 1
+		\end{array}\right)
+\]
+
+$R_3 + R_2$:
+\[
+	\left(\begin{array}{ccc|ccc}
+			1 & -3 & 4  & -1 & 0 & 0 \\
+			0 & 10 & -7 & 2  & 1 & 0 \\
+			0 & 0  & 0  & -2 & 1 & 1
+		\end{array}\right)
+\]
+
+We have a row with all zeros in the left matrix so the original matrix has no inverse.
