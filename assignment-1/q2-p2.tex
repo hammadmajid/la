@@ -1,61 +1,65 @@
 \subsection*{(ii)}
-\begin{align*}
-	2x_1 + 2x_2 + 2x_3  & = 0  \\
-	-2x_1 + 5x_2 + 2x_3 & = 1  \\
-	8x_1 + x_2 + 4x_3   & = -1
-\end{align*}
+\[
+	2x_1 + 2x_2 + 2x_3 = 0
+\]
+\[
+	-2x_1 + 5x_2 + 2x_3 = 1
+\]
+\[
+	8x_1 + x_2 + 4x_3 = -1
+\]
 
 \[
-	\left(\begin{array}{ccc|c}
-			2  & 2 & 2 & 0  \\
-			-2 & 5 & 2 & 1  \\
-			8  & 1 & 4 & -1
-		\end{array}\right)
+	\begin{pmatrix}
+		2  & 2 & 2 & 0  \\
+		-2 & 5 & 2 & 1  \\
+		8  & 1 & 4 & -1
+	\end{pmatrix}
 \]
 
 $R_1 \times \frac{1}{2}$:
 \[
-	\left(\begin{array}{ccc|c}
-			1  & 1 & 1 & 0  \\
-			-2 & 5 & 2 & 1  \\
-			8  & 1 & 4 & -1
-		\end{array}\right)
+	\begin{pmatrix}
+		1  & 1 & 1 & 0  \\
+		-2 & 5 & 2 & 1  \\
+		8  & 1 & 4 & -1
+	\end{pmatrix}
 \]
 
 $R_2 + 2R_1$:
 \[
-	\left(\begin{array}{ccc|c}
-			1 & 1  & 1  & 0  \\
-			0 & 7  & 4  & 1  \\
-			8  & 1 & 4 & -1
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1  & 1  & 0  \\
+		0 & 7  & 4  & 1  \\
+		8  & 1 & 4 & -1
+	\end{pmatrix}
 \]
 
 $R_3 - 8R_1$:
 \[
-	\left(\begin{array}{ccc|c}
-			1 & 1  & 1  & 0  \\
-			0 & 7  & 4  & 1  \\
-			0 & -7 & -4 & -1
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1  & 1  & 0  \\
+		0 & 7  & 4  & 1  \\
+		0 & -7 & -4 & -1
+	\end{pmatrix}
 \]
 
 $R_3 + R_2$:
 \[
-	\left(\begin{array}{ccc|c}
-			1 & 1 & 1 & 0 \\
-			0 & 7 & 4 & 1 \\
-			0 & 0 & 0 & 0
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1 & 1 & 0 \\
+		0 & 7 & 4 & 1 \\
+		0 & 0 & 0 & 0
+	\end{pmatrix}
 \]
 
 $R_2 \times \frac{1}{7}$:
 \[
-	\left(\begin{array}{ccc|c}
-			1 & 1 & 1           & 0           \\
-			0 & 1 & \frac{4}{7} & \frac{1}{7} \\
-			0 & 0 & 0           & 0
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1 & 1           & 0           \\
+		0 & 1 & \frac{4}{7} & \frac{1}{7} \\
+		0 & 0 & 0           & 0
+	\end{pmatrix}
 \]
 
 Let $x_3 = t$. From row 2: $x_2 + \frac{4t}{7} = \frac{1}{7} \Rightarrow x_2 = \frac{1-4t}{7}$

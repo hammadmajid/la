@@ -9,47 +9,47 @@
 
 Multiply by 10 to avoid fractions:
 \[
-	\left(\begin{array}{ccc|ccc}
-			2 & 2  & -4 & 10 & 0  & 0  \\
-			4 & -6 & -3 & 0  & 10 & 0  \\
-			2 & -8 & 1  & 0  & 0  & 10
-		\end{array}\right)
+	\begin{pmatrix}
+		2 & 2  & -4 & 10 & 0  & 0  \\
+		4 & -6 & -3 & 0  & 10 & 0  \\
+		2 & -8 & 1  & 0  & 0  & 10
+	\end{pmatrix}
 \]
 
 $R_1 \times \frac{1}{2}$:
 \[
-	\left(\begin{array}{ccc|ccc}
-			1 & 1  & -2 & 5 & 0  & 0  \\
-			4 & -6 & -3 & 0 & 10 & 0  \\
-			2 & -8 & 1  & 0 & 0  & 10
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1  & -2 & 5 & 0  & 0  \\
+		4 & -6 & -3 & 0 & 10 & 0  \\
+		2 & -8 & 1  & 0 & 0  & 10
+	\end{pmatrix}
 \]
 
 $R_2 - 4R_1$:
 \[
-	\left(\begin{array}{ccc|ccc}
-			1 & 1   & -2 & 5   & 0  & 0  \\
-			0 & -10 & 5  & -20 & 10 & 0  \\
-			2 & -8  & 1  & 0   & 0  & 10
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1   & -2 & 5   & 0  & 0  \\
+		0 & -10 & 5  & -20 & 10 & 0  \\
+		2 & -8  & 1  & 0   & 0  & 10
+	\end{pmatrix}
 \]
 
 $R_3 - 2R_1$:
 \[
-	\left(\begin{array}{ccc|ccc}
-			1 & 1   & -2 & 5   & 0  & 0  \\
-			0 & -10 & 5  & -20 & 10 & 0  \\
-			0 & -10 & 5  & -10 & 0  & 10
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1   & -2 & 5   & 0  & 0  \\
+		0 & -10 & 5  & -20 & 10 & 0  \\
+		0 & -10 & 5  & -10 & 0  & 10
+	\end{pmatrix}
 \]
 
 $R_3 - R_2$:
 \[
-	\left(\begin{array}{ccc|ccc}
-			1 & 1   & -2 & 5   & 0  & 0  \\
-			0 & -10 & 5  & -20 & 10 & 0  \\
-			0 & 0   & 0  & 10  & -10 & 10
-		\end{array}\right)
+	\begin{pmatrix}
+		1 & 1   & -2 & 5   & 0  & 0  \\
+		0 & -10 & 5  & -20 & 10 & 0  \\
+		0 & 0   & 0  & 10  & -10 & 10
+	\end{pmatrix}
 \]
 
 We have a row with all zeros in the left matrix so the original matrix has no inverse.
