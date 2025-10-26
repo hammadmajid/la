@@ -1,0 +1,139 @@
+\subsection*{Solution}
+
+The system is:
+\begin{align*}
+	x + 2y - z &= 4 \\
+	3x - y + 2z &= 1 \\
+	2x + y + z &= 7
+\end{align*}
+
+\textbf{Step 1: Find the coefficient matrix determinant}
+
+\[
+	D = \begin{vmatrix}
+		1 & 2 & -1 \\
+		3 & -1 & 2 \\
+		2 & 1 & 1
+	\end{vmatrix}
+\]
+
+Expand along the first row:
+\begin{align*}
+	D &= 1\begin{vmatrix}
+		-1 & 2 \\
+		1 & 1
+	\end{vmatrix} - 2\begin{vmatrix}
+		3 & 2 \\
+		2 & 1
+	\end{vmatrix} + (-1)\begin{vmatrix}
+		3 & -1 \\
+		2 & 1
+	\end{vmatrix} \\
+	&= 1[(-1)(1) - 2(1)] - 2[3(1) - 2(2)] - 1[3(1) - (-1)(2)] \\
+	&= 1(-1 - 2) - 2(3 - 4) - 1(3 + 2) \\
+	&= 1(-3) - 2(-1) - 1(5) \\
+	&= -3 + 2 - 5 \\
+	&= -6
+\end{align*}
+
+Since $D \neq 0$, the system has a unique solution.
+
+\textbf{Step 2: Find $D_x$ (replace first column with constants)}
+
+\[
+	D_x = \begin{vmatrix}
+		4 & 2 & -1 \\
+		1 & -1 & 2 \\
+		7 & 1 & 1
+	\end{vmatrix}
+\]
+
+\begin{align*}
+	D_x &= 4\begin{vmatrix}
+		-1 & 2 \\
+		1 & 1
+	\end{vmatrix} - 2\begin{vmatrix}
+		1 & 2 \\
+		7 & 1
+	\end{vmatrix} + (-1)\begin{vmatrix}
+		1 & -1 \\
+		7 & 1
+	\end{vmatrix} \\
+	&= 4(-1 - 2) - 2(1 - 14) - 1(1 + 7) \\
+	&= 4(-3) - 2(-13) - 1(8) \\
+	&= -12 + 26 - 8 \\
+	&= 6
+\end{align*}
+
+\textbf{Step 3: Find $D_y$ (replace second column with constants)}
+
+\[
+	D_y = \begin{vmatrix}
+		1 & 4 & -1 \\
+		3 & 1 & 2 \\
+		2 & 7 & 1
+	\end{vmatrix}
+\]
+
+\begin{align*}
+	D_y &= 1\begin{vmatrix}
+		1 & 2 \\
+		7 & 1
+	\end{vmatrix} - 4\begin{vmatrix}
+		3 & 2 \\
+		2 & 1
+	\end{vmatrix} + (-1)\begin{vmatrix}
+		3 & 1 \\
+		2 & 7
+	\end{vmatrix} \\
+	&= 1(1 - 14) - 4(3 - 4) - 1(21 - 2) \\
+	&= 1(-13) - 4(-1) - 1(19) \\
+	&= -13 + 4 - 19 \\
+	&= -28
+\end{align*}
+
+\textbf{Step 4: Find $D_z$ (replace third column with constants)}
+
+\[
+	D_z = \begin{vmatrix}
+		1 & 2 & 4 \\
+		3 & -1 & 1 \\
+		2 & 1 & 7
+	\end{vmatrix}
+\]
+
+\begin{align*}
+	D_z &= 1\begin{vmatrix}
+		-1 & 1 \\
+		1 & 7
+	\end{vmatrix} - 2\begin{vmatrix}
+		3 & 1 \\
+		2 & 7
+	\end{vmatrix} + 4\begin{vmatrix}
+		3 & -1 \\
+		2 & 1
+	\end{vmatrix} \\
+	&= 1(-7 - 1) - 2(21 - 2) + 4(3 + 2) \\
+	&= 1(-8) - 2(19) + 4(5) \\
+	&= -8 - 38 + 20 \\
+	&= -26
+\end{align*}
+
+\textbf{Step 5: Apply Cramer's Rule}
+
+\begin{align*}
+	x &= \frac{D_x}{D} = \frac{6}{-6} = -1 \\
+	y &= \frac{D_y}{D} = \frac{-28}{-6} = \frac{14}{3} \\
+	z &= \frac{D_z}{D} = \frac{-26}{-6} = \frac{13}{3}
+\end{align*}
+
+\[
+	\boxed{x = -1, \quad y = \frac{14}{3}, \quad z = \frac{13}{3}}
+\]
+
+\textbf{Verification:}
+\begin{align*}
+	(-1) + 2\left(\frac{14}{3}\right) - \frac{13}{3} &= -1 + \frac{28}{3} - \frac{13}{3} = -1 + \frac{15}{3} = -1 + 5 = 4 \checkmark \\
+	3(-1) - \frac{14}{3} + 2\left(\frac{13}{3}\right) &= -3 - \frac{14}{3} + \frac{26}{3} = -3 + \frac{12}{3} = -3 + 4 = 1 \checkmark \\
+	2(-1) + \frac{14}{3} + \frac{13}{3} &= -2 + \frac{27}{3} = -2 + 9 = 7 \checkmark
+\end{align*}
