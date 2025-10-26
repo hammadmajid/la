@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=0.5in}
+
+\begin{document}
+
+\section*{Part A: LU Factorization}
+\hrulefill
+\vspace{1em}
+
+\subsection*{Question 1}
+Find the LU factorization of the matrix:
+$$
+A = \begin{bmatrix}
+3 & 2 & 1 \\
+6 & 5 & 4 \\
+9 & 8 & 7
+\end{bmatrix}
+$$
+
+\subsection*{Question 2}
+Given the matrix:
+$$
+B = \begin{bmatrix}
+4 & 1 & 2 \\
+8 & 5 & 3 \\
+12 & 7 & 11
+\end{bmatrix}
+$$
+Find its LU decomposition and then solve the system $Bx = \begin{bmatrix} 5 \\ 13 \\ 25 \end{bmatrix}$.
+
+\subsection*{Question 3}
+Determine if the following matrix has an LU factorization. If yes, find it:
+$$
+C = \begin{bmatrix}
+1 & 2 & 3 \\
+2 & 4 & 7 \\
+3 & 6 & 10
+\end{bmatrix}
+$$
+
+\vspace{2em}
+\section*{Part B: Linear Transformations}
+\hrulefill
+\vspace{1em}
+
+\subsection*{Question 4}
+Consider the linear transformation $T : \mathbb{R}^{2} \rightarrow \mathbb{R}^{2}$ defined by:
+$$
+T(x,y) = (2x + 3y, x - 4y)
+$$
+Find the standard matrix of T and determine if it is invertible.
+
+\subsection*{Question 5}
+Let $T : \mathbb{R}^{3} \rightarrow \mathbb{R}^{2}$ be a linear transformation such that:
+\begin{align*}
+T(1,0,0) &= (2,1) \\
+T(0,1,0) &= (-1,3) \\
+T(0,0,1) &= (4,-2)
+\end{align*}
+Find $T(3,-2,5)$ and determine the kernel of T.
+
+\subsection*{Question 6}
+Determine whether the transformation $T : \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}$ defined by:
+$$
+T(x,y) = (x+y, 2x-y, 3x+2y)
+$$
+is linear. If yes, find its standard matrix and rank.
+
+\vspace{2em}
+\section*{Part C: Cramer's Rule}
+\hrulefill
+\vspace{1em}
+
+\subsection*{Question 7}
+Solve the following system using Cramer's Rule:
+$$
+\begin{cases}
+2x + 3y = 7 \\
+4x - y = 1
+\end{cases}
+$$
+
+\subsection*{Question 8}
+Use Cramer's Rule to solve the system:
+$$
+\begin{cases}
+x + 2y - z = 4 \\
+3x - y + 2z = 1 \\
+2x + y + z = 7
+\end{cases}
+$$
+
+\subsection*{Question 9}
+Determine for what value(s) of k the following system has a unique solution using Cramer's Rule:
+$$
+\begin{cases}
+x + 2y + z = 1 \\
+2x + y + z = 2 \\
+x + y + kz = 3
+\end{cases}
+$$
+
+\end{document}
