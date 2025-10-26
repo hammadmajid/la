@@ -1,0 +1,107 @@
+\subsection*{Solution}
+
+\textbf{Part 1: Find LU decomposition}
+
+Starting with:
+\[
+	B = \begin{bmatrix}
+		4 & 1 & 2 \\
+		8 & 5 & 3 \\
+		12 & 7 & 11
+	\end{bmatrix}
+\]
+
+$R_2 \leftarrow R_2 - 2R_1$:
+\[
+	\begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		12 & 7 & 11
+	\end{bmatrix}, \quad l_{21} = 2
+\]
+
+$R_3 \leftarrow R_3 - 3R_1$:
+\[
+	\begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 4 & 5
+	\end{bmatrix}, \quad l_{31} = 3
+\]
+
+$R_3 \leftarrow R_3 - \frac{4}{3}R_2$:
+\[
+	U = \begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 0 & \frac{19}{3}
+	\end{bmatrix}, \quad l_{32} = \frac{4}{3}
+\]
+
+\[
+	L = \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & \frac{4}{3} & 1
+	\end{bmatrix}
+\]
+
+\[
+	\boxed{B = LU = \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & \frac{4}{3} & 1
+	\end{bmatrix} \begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 0 & \frac{19}{3}
+	\end{bmatrix}}
+\]
+
+\textbf{Part 2: Solve $Bx = \begin{bmatrix} 5 \\ 13 \\ 25 \end{bmatrix}$}
+
+Using $LUx = b$, let $Ux = y$. First solve $Ly = b$:
+\[
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & \frac{4}{3} & 1
+	\end{bmatrix} \begin{bmatrix}
+		y_1 \\ y_2 \\ y_3
+	\end{bmatrix} = \begin{bmatrix}
+		5 \\ 13 \\ 25
+	\end{bmatrix}
+\]
+
+Forward substitution:
+\begin{align*}
+	y_1 &= 5 \\
+	2y_1 + y_2 &= 13 \Rightarrow y_2 = 13 - 10 = 3 \\
+	3y_1 + \frac{4}{3}y_2 + y_3 &= 25 \Rightarrow y_3 = 25 - 15 - 4 = 6
+\end{align*}
+
+Now solve $Ux = y$:
+\[
+	\begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 0 & \frac{19}{3}
+	\end{bmatrix} \begin{bmatrix}
+		x_1 \\ x_2 \\ x_3
+	\end{bmatrix} = \begin{bmatrix}
+		5 \\ 3 \\ 6
+	\end{bmatrix}
+\]
+
+Back substitution:
+\begin{align*}
+	\frac{19}{3}x_3 &= 6 \Rightarrow x_3 = \frac{18}{19} \\
+	3x_2 - x_3 &= 3 \Rightarrow x_2 = \frac{3 + \frac{18}{19}}{3} = \frac{75}{57} = \frac{25}{19} \\
+	4x_1 + x_2 + 2x_3 &= 5 \Rightarrow x_1 = \frac{5 - \frac{25}{19} - \frac{36}{19}}{4} = \frac{\frac{95-61}{19}}{4} = \frac{34}{76} = \frac{17}{38}
+\end{align*}
+
+\[
+	\boxed{x = \begin{bmatrix}
+		\frac{17}{38} \\ \frac{25}{19} \\ \frac{18}{19}
+	\end{bmatrix}}
+\]
