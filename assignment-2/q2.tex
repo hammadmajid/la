@@ -1,7 +1,5 @@
 \subsection*{Solution}
 
-\textbf{Part 1: Find LU decomposition}
-
 Starting with:
 \[
 	B = \begin{bmatrix}
@@ -46,8 +44,9 @@ $R_3 \leftarrow R_3 - \frac{4}{3}R_2$:
 	\end{bmatrix}
 \]
 
+Therefore, the LU factorization is:
 \[
-	\boxed{B = LU = \begin{bmatrix}
+	B = LU = \begin{bmatrix}
 		1 & 0 & 0 \\
 		2 & 1 & 0 \\
 		3 & \frac{4}{3} & 1
@@ -55,12 +54,10 @@ $R_3 \leftarrow R_3 - \frac{4}{3}R_2$:
 		4 & 1 & 2 \\
 		0 & 3 & -1 \\
 		0 & 0 & \frac{19}{3}
-	\end{bmatrix}}
+	\end{bmatrix}
 \]
 
-\textbf{Part 2: Solve $Bx = \begin{bmatrix} 5 \\ 13 \\ 25 \end{bmatrix}$}
-
-Using $LUx = b$, let $Ux = y$. First solve $Ly = b$:
+Solve $Bx = \begin{bmatrix} 5 \\ 13 \\ 25 \end{bmatrix}$ using $Ly = b$:
 \[
 	\begin{bmatrix}
 		1 & 0 & 0 \\
@@ -73,14 +70,13 @@ Using $LUx = b$, let $Ux = y$. First solve $Ly = b$:
 	\end{bmatrix}
 \]
 
-Forward substitution:
 \begin{align*}
 	y_1 &= 5 \\
-	2y_1 + y_2 &= 13 \Rightarrow y_2 = 13 - 10 = 3 \\
-	3y_1 + \frac{4}{3}y_2 + y_3 &= 25 \Rightarrow y_3 = 25 - 15 - 4 = 6
+	2y_1 + y_2 &= 13 \Rightarrow y_2 = 3 \\
+	3y_1 + \frac{4}{3}y_2 + y_3 &= 25 \Rightarrow y_3 = 6
 \end{align*}
 
-Now solve $Ux = y$:
+Solve $Ux = y$:
 \[
 	\begin{bmatrix}
 		4 & 1 & 2 \\
@@ -93,15 +89,10 @@ Now solve $Ux = y$:
 	\end{bmatrix}
 \]
 
-Back substitution:
 \begin{align*}
 	\frac{19}{3}x_3 &= 6 \Rightarrow x_3 = \frac{18}{19} \\
-	3x_2 - x_3 &= 3 \Rightarrow x_2 = \frac{3 + \frac{18}{19}}{3} = \frac{75}{57} = \frac{25}{19} \\
-	4x_1 + x_2 + 2x_3 &= 5 \Rightarrow x_1 = \frac{5 - \frac{25}{19} - \frac{36}{19}}{4} = \frac{\frac{95-61}{19}}{4} = \frac{34}{76} = \frac{17}{38}
+	3x_2 - x_3 &= 3 \Rightarrow x_2 = \frac{25}{19} \\
+	4x_1 + x_2 + 2x_3 &= 5 \Rightarrow x_1 = \frac{17}{38}
 \end{align*}
 
-\[
-	\boxed{x = \begin{bmatrix}
-		\frac{17}{38} \\ \frac{25}{19} \\ \frac{18}{19}
-	\end{bmatrix}}
-\]
+Therefore: $x_1 = \frac{17}{38}, x_2 = \frac{25}{19}, x_3 = \frac{18}{19}$

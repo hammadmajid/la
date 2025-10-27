@@ -1,31 +1,20 @@
 \subsection*{Solution}
 
-\textbf{Part 1: Find $T(3,-2,5)$}
-
-The standard matrix of $T$ is formed by the images of the standard basis vectors as columns:
+Standard matrix from given basis images:
 \[
 	A = \begin{bmatrix}
-		T(e_1) & T(e_2) & T(e_3)
-	\end{bmatrix} = \begin{bmatrix}
 		2 & -1 & 4 \\
 		1 & 3 & -2
 	\end{bmatrix}
 \]
 
-To find $T(3,-2,5)$, we multiply:
+Find $T(3,-2,5)$:
 \begin{align*}
-	T(3,-2,5) &= A\begin{bmatrix}
-		3 \\ -2 \\ 5
-	\end{bmatrix} \\
-	&= \begin{bmatrix}
+	T(3,-2,5) &= \begin{bmatrix}
 		2 & -1 & 4 \\
 		1 & 3 & -2
 	\end{bmatrix} \begin{bmatrix}
 		3 \\ -2 \\ 5
-	\end{bmatrix} \\
-	&= \begin{bmatrix}
-		2(3) + (-1)(-2) + 4(5) \\
-		1(3) + 3(-2) + (-2)(5)
 	\end{bmatrix} \\
 	&= \begin{bmatrix}
 		6 + 2 + 20 \\
@@ -36,15 +25,9 @@ To find $T(3,-2,5)$, we multiply:
 	\end{bmatrix}
 \end{align*}
 
-\[
-	\boxed{T(3,-2,5) = (28, -13)}
-\]
+Therefore: $T(3,-2,5) = (28, -13)$
 
-\textbf{Part 2: Determine the kernel of T}
-
-The kernel of $T$ consists of all vectors $\mathbf{x} \in \mathbb{R}^{3}$ such that $T(\mathbf{x}) = \mathbf{0}$.
-
-We need to solve $A\mathbf{x} = \mathbf{0}$:
+Find kernel by solving $A\mathbf{x} = \mathbf{0}$:
 \[
 	\begin{bmatrix}
 		2 & -1 & 4 \\
@@ -88,16 +71,14 @@ $R_2 \leftarrow -\frac{1}{7}R_2$:
 	\end{array}\right)
 \]
 
-From the second row: $x_2 = \frac{8}{7}x_3$
+From row 2: $x_2 = \frac{8}{7}x_3$
 
-From the first row: $x_1 + 3x_2 - 2x_3 = 0 \Rightarrow x_1 = 2x_3 - 3 \cdot \frac{8}{7}x_3 = 2x_3 - \frac{24}{7}x_3 = -\frac{10}{7}x_3$
+From row 1: $x_1 = -\frac{10}{7}x_3$
 
-Let $x_3 = t$ (free variable):
+Let $x_3 = t$:
 \[
 	\begin{bmatrix}
 		x_1 \\ x_2 \\ x_3
-	\end{bmatrix} = \begin{bmatrix}
-		-\frac{10}{7}t \\ \frac{8}{7}t \\ t
 	\end{bmatrix} = t\begin{bmatrix}
 		-\frac{10}{7} \\ \frac{8}{7} \\ 1
 	\end{bmatrix} = \frac{t}{7}\begin{bmatrix}
@@ -105,8 +86,4 @@ Let $x_3 = t$ (free variable):
 	\end{bmatrix}
 \]
 
-\[
-	\boxed{\text{Ker}(T) = \text{span}\left\{\begin{bmatrix}
-		-10 \\ 8 \\ 7
-	\end{bmatrix}\right\}}
-\]
+Therefore: $\text{Ker}(T) = \text{span}\left\{\begin{bmatrix} -10 \\ 8 \\ 7 \end{bmatrix}\right\}$

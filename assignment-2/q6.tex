@@ -1,63 +1,33 @@
 \subsection*{Solution}
 
-\textbf{Part 1: Determine if T is linear}
+Check linearity. Let $\mathbf{u} = (x_1, y_1)$ and $\mathbf{v} = (x_2, y_2)$.
 
-A transformation $T : \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}$ is linear if it satisfies:
-\begin{enumerate}
-	\item $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ for all $\mathbf{u}, \mathbf{v} \in \mathbb{R}^{2}$
-	\item $T(c\mathbf{u}) = cT(\mathbf{u})$ for all $\mathbf{u} \in \mathbb{R}^{2}$ and $c \in \mathbb{R}$
-\end{enumerate}
+$T(\mathbf{u} + \mathbf{v}) = T(x_1 + x_2, y_1 + y_2) = (x_1 + y_1 + x_2 + y_2, 2x_1 - y_1 + 2x_2 - y_2, 3x_1 + 2y_1 + 3x_2 + 2y_2)$
 
-Let $\mathbf{u} = (x_1, y_1)$ and $\mathbf{v} = (x_2, y_2)$.
+$T(\mathbf{u}) + T(\mathbf{v}) = (x_1 + y_1 + x_2 + y_2, 2x_1 - y_1 + 2x_2 - y_2, 3x_1 + 2y_1 + 3x_2 + 2y_2)$
 
-\textbf{Check property 1:}
+So $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$
+
+$T(c\mathbf{u}) = T(cx, cy) = (cx + cy, 2cx - cy, 3cx + 2cy) = c(x + y, 2x - y, 3x + 2y) = cT(\mathbf{u})$
+
+Therefore, $T$ is linear.
+
+Apply $T$ to standard basis vectors:
 \begin{align*}
-	T(\mathbf{u} + \mathbf{v}) &= T(x_1 + x_2, y_1 + y_2) \\
-	&= ((x_1 + x_2) + (y_1 + y_2), 2(x_1 + x_2) - (y_1 + y_2), 3(x_1 + x_2) + 2(y_1 + y_2)) \\
-	&= (x_1 + y_1 + x_2 + y_2, 2x_1 - y_1 + 2x_2 - y_2, 3x_1 + 2y_1 + 3x_2 + 2y_2)
+	T(1,0) &= (1, 2, 3) \\
+	T(0,1) &= (1, -1, 2)
 \end{align*}
 
-\begin{align*}
-	T(\mathbf{u}) + T(\mathbf{v}) &= (x_1 + y_1, 2x_1 - y_1, 3x_1 + 2y_1) + (x_2 + y_2, 2x_2 - y_2, 3x_2 + 2y_2) \\
-	&= (x_1 + y_1 + x_2 + y_2, 2x_1 - y_1 + 2x_2 - y_2, 3x_1 + 2y_1 + 3x_2 + 2y_2)
-\end{align*}
-
-Since $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$, property 1 holds. \checkmark
-
-\textbf{Check property 2:}
-\begin{align*}
-	T(c\mathbf{u}) &= T(cx, cy) \\
-	&= (cx + cy, 2cx - cy, 3cx + 2cy) \\
-	&= c(x + y, 2x - y, 3x + 2y) \\
-	&= cT(\mathbf{u})
-\end{align*}
-
-Since $T(c\mathbf{u}) = cT(\mathbf{u})$, property 2 holds. \checkmark
-
+Standard matrix:
 \[
-	\boxed{\text{Yes, } T \text{ is linear}}
-\]
-
-\textbf{Part 2: Find the standard matrix}
-
-Apply $T$ to the standard basis vectors:
-\begin{align*}
-	T(1,0) &= (1 + 0, 2(1) - 0, 3(1) + 2(0)) = (1, 2, 3) \\
-	T(0,1) &= (0 + 1, 2(0) - 1, 3(0) + 2(1)) = (1, -1, 2)
-\end{align*}
-
-The standard matrix is:
-\[
-	\boxed{A = \begin{bmatrix}
+	A = \begin{bmatrix}
 		1 & 1 \\
 		2 & -1 \\
 		3 & 2
-	\end{bmatrix}}
+	\end{bmatrix}
 \]
 
-\textbf{Part 3: Find the rank}
-
-To find the rank, we row reduce the matrix:
+Row reduce to find rank:
 \[
 	\begin{bmatrix}
 		1 & 1 \\
@@ -102,8 +72,4 @@ $R_3 \leftarrow R_3 + R_2$:
 	\end{bmatrix}
 \]
 
-The matrix has 2 pivot positions (non-zero rows).
-
-\[
-	\boxed{\text{rank}(A) = 2}
-\]
+Two pivot positions, so $\text{rank}(A) = 2$

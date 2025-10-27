@@ -18,22 +18,16 @@ $R_2 \leftarrow R_2 - 2R_1$:
 	\end{bmatrix}, \quad l_{21} = 2
 \]
 
-At this point, we encounter a zero pivot in position $(2,2)$. This requires row pivoting.
+Zero pivot at position $(2,2)$. The matrix does not have a standard LU factorization without row permutations.
 
-\textbf{Without pivoting:} The matrix does not have a standard LU factorization because we need to swap rows.
-
-\textbf{With pivoting (PA = LU):}
-
-Swap $R_2$ and $R_3$:
+With pivoting, swap $R_2$ and $R_3$:
 \[
-	P_1C = \begin{bmatrix}
+	PC = \begin{bmatrix}
 		1 & 2 & 3 \\
 		3 & 6 & 10 \\
 		2 & 4 & 7
 	\end{bmatrix}
 \]
-
-Now perform elimination:
 
 $R_2 \leftarrow R_2 - 3R_1$:
 \[
@@ -62,23 +56,21 @@ $R_3 \leftarrow R_3 - R_2$:
 	\end{bmatrix}, \quad l_{32} = 1
 \]
 
-\textbf{Conclusion:} The matrix $C$ does \textbf{not} have a standard LU factorization without row permutations because a zero pivot is encountered at position $(2,2)$ during the elimination process.
-
-However, with partial pivoting, we can find:
+Therefore:
 \[
-	\boxed{PC = LU \text{ where } P = \begin{bmatrix}
+	P = \begin{bmatrix}
 		1 & 0 & 0 \\
 		0 & 0 & 1 \\
 		0 & 1 & 0
-	\end{bmatrix}, L = \begin{bmatrix}
+	\end{bmatrix}, \quad L = \begin{bmatrix}
 		1 & 0 & 0 \\
 		3 & 1 & 0 \\
 		2 & 1 & 1
-	\end{bmatrix}, U = \begin{bmatrix}
+	\end{bmatrix}, \quad U = \begin{bmatrix}
 		1 & 2 & 3 \\
 		0 & 0 & 1 \\
 		0 & 0 & 0
-	\end{bmatrix}}
+	\end{bmatrix}
 \]
 
-\textbf{Note:} The standard answer is that $C$ does not have an LU factorization (without pivoting).
+The matrix $C$ does not have a standard LU factorization without pivoting.
