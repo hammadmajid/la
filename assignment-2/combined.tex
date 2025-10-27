@@ -1,0 +1,724 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=0.5in}
+
+\begin{document}
+
+\section*{Part A: LU Factorization}
+\hrulefill
+\vspace{1em}
+
+% BEGIN QUESTION 1
+\subsection*{Question 1}
+Find the LU factorization of the matrix:
+$$
+A = \begin{bmatrix}
+3 & 2 & 1 \\
+6 & 5 & 4 \\
+9 & 8 & 7
+\end{bmatrix}
+$$
+
+\subsection*{Solution}
+
+We perform Gaussian elimination to find $L$ and $U$.
+
+Starting with:
+\[
+	A = \begin{bmatrix}
+		3 & 2 & 1 \\
+		6 & 5 & 4 \\
+		9 & 8 & 7
+	\end{bmatrix}
+\]
+
+$R_2 - 2R_1$:
+\[
+	\begin{bmatrix}
+		3 & 2 & 1 \\
+		0 & 1 & 2 \\
+		9 & 8 & 7
+	\end{bmatrix}, \quad l_{21} = 2
+\]
+
+$R_3 - 3R_1$:
+\[
+	\begin{bmatrix}
+		3 & 2 & 1 \\
+		0 & 1 & 2 \\
+		0 & 2 & 4
+	\end{bmatrix}, \quad l_{31} = 3
+\]
+
+$R_3 - 2R_2$:
+\[
+	U = \begin{bmatrix}
+		3 & 2 & 1 \\
+		0 & 1 & 2 \\
+		0 & 0 & 0
+	\end{bmatrix}, \quad l_{32} = 2
+\]
+
+Using the multipliers:
+\[
+	L = \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & 2 & 1
+	\end{bmatrix}
+\]
+
+Therefore, the LU factorization is:
+\[
+	{A = LU = \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & 2 & 1
+	\end{bmatrix} \begin{bmatrix}
+		3 & 2 & 1 \\
+		0 & 1 & 2 \\
+		0 & 0 & 0
+	\end{bmatrix}}
+\]
+
+Verification:
+\begin{align*}
+	LU &= \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & 2 & 1
+	\end{bmatrix} \begin{bmatrix}
+		3 & 2 & 1 \\
+		0 & 1 & 2 \\
+		0 & 0 & 0
+	\end{bmatrix} \\
+	&= \begin{bmatrix}
+		3 & 2 & 1 \\
+		6 & 5 & 4 \\
+		9 & 8 & 7
+	\end{bmatrix} = A
+\end{align*}
+% END QUESTION 1
+
+% BEGIN QUESTION 2
+\subsection*{Question 2}
+Given the matrix:
+$$
+B = \begin{bmatrix}
+4 & 1 & 2 \\
+8 & 5 & 3 \\
+12 & 7 & 11
+\end{bmatrix}
+$$
+Find its LU decomposition and then solve the system $Bx = \begin{bmatrix} 5 \\ 13 \\ 25 \end{bmatrix}$.
+
+\subsection*{Solution}
+
+Starting with:
+\[
+	B = \begin{bmatrix}
+		4 & 1 & 2 \\
+		8 & 5 & 3 \\
+		12 & 7 & 11
+	\end{bmatrix}
+\]
+
+$R_2 - 2R_1$:
+\[
+	\begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		12 & 7 & 11
+	\end{bmatrix}, \quad l_{21} = 2
+\]
+
+$R_3 - 3R_1$:
+\[
+	\begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 4 & 5
+	\end{bmatrix}, \quad l_{31} = 3
+\]
+
+$R_3 - \frac{4}{3}R_2$:
+\[
+	U = \begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 0 & \frac{19}{3}
+	\end{bmatrix}, \quad l_{32} = \frac{4}{3}
+\]
+
+\[
+	L = \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & \frac{4}{3} & 1
+	\end{bmatrix}
+\]
+
+Therefore, the LU factorization is:
+\[
+	B = LU = \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & \frac{4}{3} & 1
+	\end{bmatrix} \begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 0 & \frac{19}{3}
+	\end{bmatrix}
+\]
+
+Solve $Bx = \begin{bmatrix} 5 \\ 13 \\ 25 \end{bmatrix}$ using $Ly = b$:
+\[
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & 1 & 0 \\
+		3 & \frac{4}{3} & 1
+	\end{bmatrix} \begin{bmatrix}
+		y_1 \\ y_2 \\ y_3
+	\end{bmatrix} = \begin{bmatrix}
+		5 \\ 13 \\ 25
+	\end{bmatrix}
+\]
+
+\begin{align*}
+	y_1 &= 5 \\
+	2y_1 + y_2 &= 13 \Rightarrow y_2 = 3 \\
+	3y_1 + \frac{4}{3}y_2 + y_3 &= 25 \Rightarrow y_3 = 6
+\end{align*}
+
+Solve $Ux = y$:
+\[
+	\begin{bmatrix}
+		4 & 1 & 2 \\
+		0 & 3 & -1 \\
+		0 & 0 & \frac{19}{3}
+	\end{bmatrix} \begin{bmatrix}
+		x_1 \\ x_2 \\ x_3
+	\end{bmatrix} = \begin{bmatrix}
+		5 \\ 3 \\ 6
+	\end{bmatrix}
+\]
+
+\begin{align*}
+	\frac{19}{3}x_3 &= 6 \Rightarrow x_3 = \frac{18}{19} \\
+	3x_2 - x_3 &= 3 \Rightarrow x_2 = \frac{25}{19} \\
+	4x_1 + x_2 + 2x_3 &= 5 \Rightarrow x_1 = \frac{17}{38}
+\end{align*}
+
+Therefore: $x_1 = \frac{17}{38}, x_2 = \frac{25}{19}, x_3 = \frac{18}{19}$
+% END QUESTION 2
+
+% BEGIN QUESTION 3
+\subsection*{Question 3}
+Determine if the following matrix has an LU factorization. If yes, find it:
+$$
+C = \begin{bmatrix}
+1 & 2 & 3 \\
+2 & 4 & 7 \\
+3 & 6 & 10
+\end{bmatrix}
+$$
+
+\subsection*{Solution}
+
+Starting with:
+\[
+	C = \begin{bmatrix}
+		1 & 2 & 3 \\
+		2 & 4 & 7 \\
+		3 & 6 & 10
+	\end{bmatrix}
+\]
+
+$R_2 \leftarrow R_2 - 2R_1$:
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		0 & 0 & 1 \\
+		3 & 6 & 10
+	\end{bmatrix}, \quad l_{21} = 2
+\]
+
+Zero pivot at position $(2,2)$. The matrix does not have a standard LU factorization.
+% END QUESTION 3
+
+\vspace{2em}
+\section*{Part B: Linear Transformations}
+\hrulefill
+\vspace{1em}
+
+% BEGIN QUESTION 4
+\subsection*{Question 4}
+Consider the linear transformation $T : \mathbb{R}^{2} \rightarrow \mathbb{R}^{2}$ defined by:
+$$
+T(x,y) = (2x + 3y, x - 4y)
+$$
+Find the standard matrix of T and determine if it is invertible.
+
+\subsection*{Solution}
+
+Apply $T$ to standard basis vectors:
+\begin{align*}
+	T(1,0) &= (2, 1) \\
+	T(0,1) &= (3, -4)
+\end{align*}
+
+Standard matrix:
+\[
+	A = \begin{bmatrix}
+		2 & 3 \\
+		1 & -4
+	\end{bmatrix}
+\]
+
+Calculate determinant:
+\[
+	\det(A) = \begin{vmatrix}
+		2 & 3 \\
+		1 & -4
+	\end{vmatrix} = 2(-4) - 3(1) = -8 - 3 = -11
+\]
+
+Since $\det(A) = -11 \neq 0$, the transformation is invertible.
+
+Inverse matrix:
+\[
+	A^{-1} = \frac{1}{-11}\begin{bmatrix}
+		-4 & -3 \\
+		-1 & 2
+	\end{bmatrix} = \begin{bmatrix}
+		\frac{4}{11} & \frac{3}{11} \\
+		\frac{1}{11} & -\frac{2}{11}
+	\end{bmatrix}
+\]
+% END QUESTION 4
+
+% BEGIN QUESTION 5
+\subsection*{Question 5}
+Let $T : \mathbb{R}^{3} \rightarrow \mathbb{R}^{2}$ be a linear transformation such that:
+\begin{align*}
+T(1,0,0) &= (2,1) \\
+T(0,1,0) &= (-1,3) \\
+T(0,0,1) &= (4,-2)
+\end{align*}
+Find $T(3,-2,5)$ and determine the kernel of T.
+
+\subsection*{Solution}
+
+Standard matrix from given basis images:
+\[
+	A = \begin{bmatrix}
+		2 & -1 & 4 \\
+		1 & 3 & -2
+	\end{bmatrix}
+\]
+
+Find $T(3,-2,5)$:
+\begin{align*}
+	T(3,-2,5) &= \begin{bmatrix}
+		2 & -1 & 4 \\
+		1 & 3 & -2
+	\end{bmatrix} \begin{bmatrix}
+		3 \\ -2 \\ 5
+	\end{bmatrix} \\
+	&= \begin{bmatrix}
+		6 + 2 + 20 \\
+		3 - 6 - 10
+	\end{bmatrix} \\
+	&= \begin{bmatrix}
+		28 \\ -13
+	\end{bmatrix}
+\end{align*}
+
+Therefore: $T(3,-2,5) = (28, -13)$
+
+Find kernel by solving $A\mathbf{x} = \mathbf{0}$:
+\[
+	\begin{bmatrix}
+		2 & -1 & 4 \\
+		1 & 3 & -2
+	\end{bmatrix} \begin{bmatrix}
+		x_1 \\ x_2 \\ x_3
+	\end{bmatrix} = \begin{bmatrix}
+		0 \\ 0
+	\end{bmatrix}
+\]
+
+Set up the augmented matrix:
+\[
+	\left(\begin{array}{ccc|c}
+		2 & -1 & 4 & 0 \\
+		1 & 3 & -2 & 0
+	\end{array}\right)
+\]
+
+$R_1 \leftrightarrow R_2$:
+\[
+	\left(\begin{array}{ccc|c}
+		1 & 3 & -2 & 0 \\
+		2 & -1 & 4 & 0
+	\end{array}\right)
+\]
+
+$R_2 \leftarrow R_2 - 2R_1$:
+\[
+	\left(\begin{array}{ccc|c}
+		1 & 3 & -2 & 0 \\
+		0 & -7 & 8 & 0
+	\end{array}\right)
+\]
+
+$R_2 \leftarrow -\frac{1}{7}R_2$:
+\[
+	\left(\begin{array}{ccc|c}
+		1 & 3 & -2 & 0 \\
+		0 & 1 & -\frac{8}{7} & 0
+	\end{array}\right)
+\]
+
+From row 2: $x_2 = \frac{8}{7}x_3$
+
+From row 1: $x_1 = -\frac{10}{7}x_3$
+
+Let $x_3 = t$:
+\[
+	\begin{bmatrix}
+		x_1 \\ x_2 \\ x_3
+	\end{bmatrix} = t\begin{bmatrix}
+		-\frac{10}{7} \\ \frac{8}{7} \\ 1
+	\end{bmatrix} = \frac{t}{7}\begin{bmatrix}
+		-10 \\ 8 \\ 7
+	\end{bmatrix}
+\]
+
+Therefore: $\text{Ker}(T) = \text{span}\left\{\begin{bmatrix} -10 \\ 8 \\ 7 \end{bmatrix}\right\}$
+% END QUESTION 5
+
+% BEGIN QUESTION 6
+\subsection*{Question 6}
+Determine whether the transformation $T : \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}$ defined by:
+$$
+T(x,y) = (x+y, 2x-y, 3x+2y)
+$$
+is linear. If yes, find its standard matrix and rank.
+
+\subsection*{Solution}
+
+Check linearity. Let $\mathbf{u} = (x_1, y_1)$ and $\mathbf{v} = (x_2, y_2)$.
+
+$T(\mathbf{u} + \mathbf{v}) = T(x_1 + x_2, y_1 + y_2) = (x_1 + y_1 + x_2 + y_2, 2x_1 - y_1 + 2x_2 - y_2, 3x_1 + 2y_1 + 3x_2 + 2y_2)$
+
+$T(\mathbf{u}) + T(\mathbf{v}) = (x_1 + y_1 + x_2 + y_2, 2x_1 - y_1 + 2x_2 - y_2, 3x_1 + 2y_1 + 3x_2 + 2y_2)$
+
+So $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$
+
+$T(c\mathbf{u}) = T(cx, cy) = (cx + cy, 2cx - cy, 3cx + 2cy) = c(x + y, 2x - y, 3x + 2y) = cT(\mathbf{u})$
+
+Therefore, $T$ is linear.
+
+Apply $T$ to standard basis vectors:
+\begin{align*}
+	T(1,0) &= (1, 2, 3) \\
+	T(0,1) &= (1, -1, 2)
+\end{align*}
+
+Standard matrix:
+\[
+	A = \begin{bmatrix}
+		1 & 1 \\
+		2 & -1 \\
+		3 & 2
+	\end{bmatrix}
+\]
+
+Row reduce to find rank:
+\[
+	\begin{bmatrix}
+		1 & 1 \\
+		2 & -1 \\
+		3 & 2
+	\end{bmatrix}
+\]
+
+$R_2 - 2R_1$:
+\[
+	\begin{bmatrix}
+		1 & 1 \\
+		0 & -3 \\
+		3 & 2
+	\end{bmatrix}
+\]
+
+$R_3 - 3R_1$:
+\[
+	\begin{bmatrix}
+		1 & 1 \\
+		0 & -3 \\
+		0 & -1
+	\end{bmatrix}
+\]
+
+$-\frac{1}{3}R_2$:
+\[
+	\begin{bmatrix}
+		1 & 1 \\
+		0 & 1 \\
+		0 & -1
+	\end{bmatrix}
+\]
+
+$R_3 + R_2$:
+\[
+	\begin{bmatrix}
+		1 & 1 \\
+		0 & 1 \\
+		0 & 0
+	\end{bmatrix}
+\]
+
+Two pivot positions, so $\text{rank}(A) = 2$
+% END QUESTION 6
+
+\vspace{2em}
+\section*{Part C: Cramer's Rule}
+\hrulefill
+\vspace{1em}
+
+% BEGIN QUESTION 7
+\subsection*{Question 7}
+Solve the following system using Cramer's Rule:
+$$
+\begin{cases}
+2x + 3y = 7 \\
+4x - y = 1
+\end{cases}
+$$
+
+\subsection*{Solution}
+
+\[
+	D = \begin{vmatrix}
+		2 & 3 \\
+		4 & -1
+	\end{vmatrix} = 2(-1) - 3(4) = -14
+\]
+
+\[
+	D_x = \begin{vmatrix}
+		7 & 3 \\
+		1 & -1
+	\end{vmatrix} = 7(-1) - 3(1) = -10
+\]
+
+\[
+	D_y = \begin{vmatrix}
+		2 & 7 \\
+		4 & 1
+	\end{vmatrix} = 2(1) - 7(4) = -26
+\]
+
+\begin{align*}
+	x &= \frac{D_x}{D} = \frac{-10}{-14} = \frac{5}{7} \\
+	y &= \frac{D_y}{D} = \frac{-26}{-14} = \frac{13}{7}
+\end{align*}
+
+Therefore: $x = \frac{5}{7}, y = \frac{13}{7}$
+% END QUESTION 7
+
+% BEGIN QUESTION 8
+\subsection*{Question 8}
+Use Cramer's Rule to solve the system:
+$$
+\begin{cases}
+x + 2y - z = 4 \\
+3x - y + 2z = 1 \\
+2x + y + z = 7
+\end{cases}
+$$
+
+\subsection*{Solution}
+
+\[
+	D = \begin{vmatrix}
+		1 & 2 & -1 \\
+		3 & -1 & 2 \\
+		2 & 1 & 1
+	\end{vmatrix}
+\]
+\begin{align*}
+	D &= 1\begin{vmatrix}
+		-1 & 2 \\
+		1 & 1
+	\end{vmatrix} - 2\begin{vmatrix}
+		3 & 2 \\
+		2 & 1
+	\end{vmatrix} - 1\begin{vmatrix}
+		3 & -1 \\
+		2 & 1
+	\end{vmatrix} \\
+	&= 1(-3) - 2(-1) - 1(5) = -6
+\end{align*}
+
+\[
+	D_x = \begin{vmatrix}
+		4 & 2 & -1 \\
+		1 & -1 & 2 \\
+		7 & 1 & 1
+	\end{vmatrix}
+\]
+
+\begin{align*}
+	D_x &= 4\begin{vmatrix}
+		-1 & 2 \\
+		1 & 1
+	\end{vmatrix} - 2\begin{vmatrix}
+		1 & 2 \\
+		7 & 1
+	\end{vmatrix} - 1\begin{vmatrix}
+		1 & -1 \\
+		7 & 1
+	\end{vmatrix} \\
+	&= 4(-3) - 2(-13) - 1(8) = 6
+\end{align*}
+
+\[
+	D_y = \begin{vmatrix}
+		1 & 4 & -1 \\
+		3 & 1 & 2 \\
+		2 & 7 & 1
+	\end{vmatrix}
+\]
+
+\begin{align*}
+	D_y &= 1\begin{vmatrix}
+		1 & 2 \\
+		7 & 1
+	\end{vmatrix} - 4\begin{vmatrix}
+		3 & 2 \\
+		2 & 1
+	\end{vmatrix} - 1\begin{vmatrix}
+		3 & 1 \\
+		2 & 7
+	\end{vmatrix} \\
+	&= 1(-13) - 4(-1) - 1(19) = -28
+\end{align*}
+
+\[
+	D_z = \begin{vmatrix}
+		1 & 2 & 4 \\
+		3 & -1 & 1 \\
+		2 & 1 & 7
+	\end{vmatrix}
+\]
+
+\begin{align*}
+	D_z &= 1\begin{vmatrix}
+		-1 & 1 \\
+		1 & 7
+	\end{vmatrix} - 2\begin{vmatrix}
+		3 & 1 \\
+		2 & 7
+	\end{vmatrix} + 4\begin{vmatrix}
+		3 & -1 \\
+		2 & 1
+	\end{vmatrix} \\
+	&= 1(-8) - 2(19) + 4(5) = -26
+\end{align*}
+
+\begin{align*}
+	x &= \frac{D_x}{D} = \frac{6}{-6} = -1 \\
+	y &= \frac{D_y}{D} = \frac{-28}{-6} = \frac{14}{3} \\
+	z &= \frac{D_z}{D} = \frac{-26}{-6} = \frac{13}{3}
+\end{align*}
+
+Therefore: $x = -1, y = \frac{14}{3}, z = \frac{13}{3}$
+% END QUESTION 8
+
+% BEGIN QUESTION 9
+\subsection*{Question 9}
+Determine for what value(s) of k the following system has a unique solution using Cramer's Rule:
+$$
+\begin{cases}
+x + 2y + z = 1 \\
+2x + y + z = 2 \\
+x + y + kz = 3
+\end{cases}
+$$
+
+\subsection*{Solution}
+
+\[
+	D = \begin{vmatrix}
+		1 & 2 & 1 \\
+		2 & 1 & 1 \\
+		1 & 1 & k
+	\end{vmatrix}
+\]
+\begin{align*}
+	D &= 1\begin{vmatrix}
+		1 & 1 \\
+		1 & k
+	\end{vmatrix} - 2\begin{vmatrix}
+		2 & 1 \\
+		1 & k
+	\end{vmatrix} + 1\begin{vmatrix}
+		2 & 1 \\
+		1 & 1
+	\end{vmatrix} \\
+	&= k - 1 - 4k + 2 + 1 = -3k + 2
+\end{align*}
+
+For unique solution: $D \neq 0$
+\[
+	-3k + 2 \neq 0 \Rightarrow k \neq \frac{2}{3}
+\]
+
+Therefore: The system has a unique solution for all $k \neq \frac{2}{3}$
+
+When $k = \frac{2}{3}$, check by row reduction:
+
+\[
+	\left(\begin{array}{ccc|c}
+		1 & 2 & 1 & 1 \\
+		2 & 1 & 1 & 2 \\
+		1 & 1 & \frac{2}{3} & 3
+	\end{array}\right)
+\]
+
+$R_2 - 2R_1$:
+\[
+	\left(\begin{array}{ccc|c}
+		1 & 2 & 1 & 1 \\
+		0 & -3 & -1 & 0 \\
+		1 & 1 & \frac{2}{3} & 3
+	\end{array}\right)
+\]
+
+$R_3 - R_1$:
+\[
+	\left(\begin{array}{ccc|c}
+		1 & 2 & 1 & 1 \\
+		0 & -3 & -1 & 0 \\
+		0 & -1 & -\frac{1}{3} & 2
+	\end{array}\right)
+\]
+
+$R_3 - \frac{1}{3}R_2$:
+\[
+	\left(\begin{array}{ccc|c}
+		1 & 2 & 1 & 1 \\
+		0 & -3 & -1 & 0 \\
+		0 & 0 & 0 & 2
+	\end{array}\right)
+\]
+
+Last row gives $0 = 2$, contradiction. When $k = \frac{2}{3}$, the system has no solution.
+% END QUESTION 9
+
+\end{document}
