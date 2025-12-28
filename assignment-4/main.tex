@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=0.5in}
+
+\begin{document}
+
+\section*{Question 1}
+Use the Gram-Schmidt process to construct an orthonormal basis for the subspace of $\mathbb{R}^3$ spanned by:
+\[
+u_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad u_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+\]
+
+\input{q1.tex}
+
+\section*{Question 2}
+Find the inner product $\langle x, y \rangle$ for:
+\[
+x = \begin{pmatrix} 2 \\ -1 \end{pmatrix}, \quad y = \begin{pmatrix} 3 \\ 4 \end{pmatrix}
+\]
+using the weighted inner product: $\langle x, y \rangle = 3x_1y_1 + 2x_2y_2$
+
+\input{q2.tex}
+
+\section*{Question 3}
+Let $V = P_2$ (polynomials of degree $\le 2$). Define:
+\[
+\langle p, q \rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)
+\]
+Find $\langle 1, x \rangle$ and $\langle x, x^2 \rangle$.
+
+\input{q3.tex}
+
+\section*{Question 4}
+Check if the set is orthonormal:
+\[
+\left\{ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix} \right\}
+\]
+
+\input{q4.tex}
+
+\section*{Question 5}
+In $\mathbb{R}^2$ with inner product $\langle u, v \rangle = 2u_1v_1 + u_2v_2$, use Gram-Schmidt on:
+\[
+a_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 2 \\ 0 \end{pmatrix}
+\]
+
+\input{q5.tex}
+
+\end{document}

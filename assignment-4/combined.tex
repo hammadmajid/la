@@ -1,0 +1,281 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=0.5in}
+
+\begin{document}
+
+\section*{Question 1}
+Use the Gram-Schmidt process to construct an orthonormal basis for the subspace of $\mathbb{R}^3$ spanned by:
+\[
+u_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad u_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+\]
+
+\subsection*{Solution}
+
+Step 1: Set $v_1 = u_1$
+\[
+v_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+\]
+
+Step 2: Find $v_2 = u_2 - \text{proj}_{v_1} u_2$
+
+First find the projection:
+\[
+\text{proj}_{v_1} u_2 = \frac{u_2 \cdot v_1}{v_1 \cdot v_1} v_1
+\]
+
+Calculate $u_2 \cdot v_1$:
+\[
+u_2 \cdot v_1 = (0)(1) + (1)(0) + (1)(1) = 0 + 0 + 1 = 1
+\]
+
+Calculate $v_1 \cdot v_1$:
+\[
+v_1 \cdot v_1 = (1)(1) + (0)(0) + (1)(1) = 1 + 0 + 1 = 2
+\]
+
+So:
+\[
+\text{proj}_{v_1} u_2 = \frac{1}{2} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1/2 \\ 0 \\ 1/2 \end{pmatrix}
+\]
+
+Now find $v_2$:
+\[
+v_2 = u_2 - \text{proj}_{v_1} u_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} - \begin{pmatrix} 1/2 \\ 0 \\ 1/2 \end{pmatrix} = \begin{pmatrix} -1/2 \\ 1 \\ 1/2 \end{pmatrix}
+\]
+
+Step 3: Normalize $v_1$ and $v_2$
+
+For $v_1$:
+\[
+\|v_1\| = \sqrt{1 + 0 + 1} = \sqrt{2}
+\]
+\[
+e_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+\]
+
+For $v_2$:
+\[
+\|v_2\| = \sqrt{(-1/2)^2 + 1^2 + (1/2)^2} = \sqrt{1/4 + 1 + 1/4} = \sqrt{3/2} = \frac{\sqrt{6}}{2}
+\]
+\[
+e_2 = \frac{v_2}{\|v_2\|} = \frac{2}{\sqrt{6}} \begin{pmatrix} -1/2 \\ 1 \\ 1/2 \end{pmatrix} = \begin{pmatrix} -1/\sqrt{6} \\ 2/\sqrt{6} \\ 1/\sqrt{6} \end{pmatrix} = \frac{1}{\sqrt{6}} \begin{pmatrix} -1 \\ 2 \\ 1 \end{pmatrix}
+\]
+
+The orthonormal basis is:
+\[
+\left\{ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \frac{1}{\sqrt{6}} \begin{pmatrix} -1 \\ 2 \\ 1 \end{pmatrix} \right\}
+\]
+
+\section*{Question 2}
+Find the inner product $\langle x, y \rangle$ for:
+\[
+x = \begin{pmatrix} 2 \\ -1 \end{pmatrix}, \quad y = \begin{pmatrix} 3 \\ 4 \end{pmatrix}
+\]
+using the weighted inner product: $\langle x, y \rangle = 3x_1y_1 + 2x_2y_2$
+
+\subsection*{Solution}
+
+Given:
+\[
+x = \begin{pmatrix} 2 \\ -1 \end{pmatrix}, \quad y = \begin{pmatrix} 3 \\ 4 \end{pmatrix}
+\]
+
+The weighted inner product is:
+\[
+\langle x, y \rangle = 3x_1y_1 + 2x_2y_2
+\]
+
+Substitute the values:
+\[
+\langle x, y \rangle = 3(2)(3) + 2(-1)(4)
+\]
+\[
+= 18 + (-8)
+\]
+\[
+= 18 - 8
+\]
+\[
+= 10
+\]
+
+Therefore, $\langle x, y \rangle = 10$.
+
+\section*{Question 3}
+Let $V = P_2$ (polynomials of degree $\le 2$). Define:
+\[
+\langle p, q \rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)
+\]
+Find $\langle 1, x \rangle$ and $\langle x, x^2 \rangle$.
+
+\subsection*{Solution}
+
+The inner product is defined as:
+\[
+\langle p, q \rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)
+\]
+
+\textbf{Part (a): Find $\langle 1, x \rangle$}
+
+Let $p(x) = 1$ and $q(x) = x$.
+
+Evaluate at each point:
+\begin{align*}
+p(-1) &= 1, \quad q(-1) = -1 \\
+p(0) &= 1, \quad q(0) = 0 \\
+p(1) &= 1, \quad q(1) = 1
+\end{align*}
+
+Calculate:
+\[
+\langle 1, x \rangle = (1)(-1) + (1)(0) + (1)(1) = -1 + 0 + 1 = 0
+\]
+
+\textbf{Part (b): Find $\langle x, x^2 \rangle$}
+
+Let $p(x) = x$ and $q(x) = x^2$.
+
+Evaluate at each point:
+\begin{align*}
+p(-1) &= -1, \quad q(-1) = 1 \\
+p(0) &= 0, \quad q(0) = 0 \\
+p(1) &= 1, \quad q(1) = 1
+\end{align*}
+
+Calculate:
+\[
+\langle x, x^2 \rangle = (-1)(1) + (0)(0) + (1)(1) = -1 + 0 + 1 = 0
+\]
+
+Therefore:
+\[
+\langle 1, x \rangle = 0 \quad \text{and} \quad \langle x, x^2 \rangle = 0
+\]
+
+\section*{Question 4}
+Check if the set is orthonormal:
+\[
+\left\{ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix} \right\}
+\]
+
+\subsection*{Solution}
+
+Let:
+\[
+v_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad v_2 = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}
+\]
+
+For orthonormal, we need:
+\begin{enumerate}
+\item $\|v_1\| = 1$
+\item $\|v_2\| = 1$
+\item $v_1 \cdot v_2 = 0$
+\end{enumerate}
+
+\textbf{Check $\|v_1\|$:}
+\[
+\|v_1\|^2 = \frac{1}{2}(1^2 + 0^2 + 1^2) = \frac{1}{2}(2) = 1
+\]
+So $\|v_1\| = 1$. Good.
+
+\textbf{Check $\|v_2\|$:}
+\[
+\|v_2\|^2 = \frac{1}{3}(1^2 + 1^2 + (-1)^2) = \frac{1}{3}(3) = 1
+\]
+So $\|v_2\| = 1$. Good.
+
+\textbf{Check $v_1 \cdot v_2$:}
+\[
+v_1 \cdot v_2 = \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{3}} \left[ (1)(1) + (0)(1) + (1)(-1) \right]
+\]
+\[
+= \frac{1}{\sqrt{6}} (1 + 0 - 1)
+\]
+\[
+= \frac{1}{\sqrt{6}} (0) = 0
+\]
+
+Since:
+\begin{itemize}
+\item $\|v_1\| = 1$
+\item $\|v_2\| = 1$
+\item $v_1 \cdot v_2 = 0$
+\end{itemize}
+
+The set is already orthonormal. No normalization needed.
+
+\section*{Question 5}
+In $\mathbb{R}^2$ with inner product $\langle u, v \rangle = 2u_1v_1 + u_2v_2$, use Gram-Schmidt on:
+\[
+a_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 2 \\ 0 \end{pmatrix}
+\]
+
+\subsection*{Solution}
+
+Given inner product: $\langle u, v \rangle = 2u_1v_1 + u_2v_2$
+
+Vectors:
+\[
+a_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 2 \\ 0 \end{pmatrix}
+\]
+
+\textbf{Step 1: Set $v_1 = a_1$}
+\[
+v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\]
+
+\textbf{Step 2: Find $v_2 = a_2 - \text{proj}_{v_1} a_2$}
+
+Calculate $\langle a_2, v_1 \rangle$:
+\[
+\langle a_2, v_1 \rangle = 2(2)(1) + (0)(1) = 4 + 0 = 4
+\]
+
+Calculate $\langle v_1, v_1 \rangle$:
+\[
+\langle v_1, v_1 \rangle = 2(1)(1) + (1)(1) = 2 + 1 = 3
+\]
+
+Projection:
+\[
+\text{proj}_{v_1} a_2 = \frac{\langle a_2, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 = \frac{4}{3} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 4/3 \\ 4/3 \end{pmatrix}
+\]
+
+Find $v_2$:
+\[
+v_2 = a_2 - \text{proj}_{v_1} a_2 = \begin{pmatrix} 2 \\ 0 \end{pmatrix} - \begin{pmatrix} 4/3 \\ 4/3 \end{pmatrix} = \begin{pmatrix} 2/3 \\ -4/3 \end{pmatrix}
+\]
+
+\textbf{Step 3: Normalize}
+
+For $v_1$:
+\[
+\|v_1\|^2 = \langle v_1, v_1 \rangle = 3
+\]
+\[
+\|v_1\| = \sqrt{3}
+\]
+\[
+e_1 = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\]
+
+For $v_2$:
+\[
+\|v_2\|^2 = \langle v_2, v_2 \rangle = 2(2/3)^2 + (-4/3)^2 = 2 \cdot \frac{4}{9} + \frac{16}{9} = \frac{8}{9} + \frac{16}{9} = \frac{24}{9} = \frac{8}{3}
+\]
+\[
+\|v_2\| = \sqrt{\frac{8}{3}} = \frac{2\sqrt{2}}{\sqrt{3}} = \frac{2\sqrt{6}}{3}
+\]
+\[
+e_2 = \frac{1}{\|v_2\|} v_2 = \frac{3}{2\sqrt{6}} \begin{pmatrix} 2/3 \\ -4/3 \end{pmatrix} = \frac{1}{2\sqrt{6}} \begin{pmatrix} 2 \\ -4 \end{pmatrix} = \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \end{pmatrix}
+\]
+
+The orthonormal basis is:
+\[
+\left\{ \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \end{pmatrix} \right\}
+\]
+
+\end{document}

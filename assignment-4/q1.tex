@@ -1,0 +1,56 @@
+\subsection*{Solution}
+
+Step 1: Set $v_1 = u_1$
+\[
+v_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+\]
+
+Step 2: Find $v_2 = u_2 - \text{proj}_{v_1} u_2$
+
+First find the projection:
+\[
+\text{proj}_{v_1} u_2 = \frac{u_2 \cdot v_1}{v_1 \cdot v_1} v_1
+\]
+
+Calculate $u_2 \cdot v_1$:
+\[
+u_2 \cdot v_1 = (0)(1) + (1)(0) + (1)(1) = 0 + 0 + 1 = 1
+\]
+
+Calculate $v_1 \cdot v_1$:
+\[
+v_1 \cdot v_1 = (1)(1) + (0)(0) + (1)(1) = 1 + 0 + 1 = 2
+\]
+
+So:
+\[
+\text{proj}_{v_1} u_2 = \frac{1}{2} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1/2 \\ 0 \\ 1/2 \end{pmatrix}
+\]
+
+Now find $v_2$:
+\[
+v_2 = u_2 - \text{proj}_{v_1} u_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} - \begin{pmatrix} 1/2 \\ 0 \\ 1/2 \end{pmatrix} = \begin{pmatrix} -1/2 \\ 1 \\ 1/2 \end{pmatrix}
+\]
+
+Step 3: Normalize $v_1$ and $v_2$
+
+For $v_1$:
+\[
+\|v_1\| = \sqrt{1 + 0 + 1} = \sqrt{2}
+\]
+\[
+e_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+\]
+
+For $v_2$:
+\[
+\|v_2\| = \sqrt{(-1/2)^2 + 1^2 + (1/2)^2} = \sqrt{1/4 + 1 + 1/4} = \sqrt{3/2} = \frac{\sqrt{6}}{2}
+\]
+\[
+e_2 = \frac{v_2}{\|v_2\|} = \frac{2}{\sqrt{6}} \begin{pmatrix} -1/2 \\ 1 \\ 1/2 \end{pmatrix} = \begin{pmatrix} -1/\sqrt{6} \\ 2/\sqrt{6} \\ 1/\sqrt{6} \end{pmatrix} = \frac{1}{\sqrt{6}} \begin{pmatrix} -1 \\ 2 \\ 1 \end{pmatrix}
+\]
+
+The orthonormal basis is:
+\[
+\left\{ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \frac{1}{\sqrt{6}} \begin{pmatrix} -1 \\ 2 \\ 1 \end{pmatrix} \right\}
+\]

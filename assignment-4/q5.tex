@@ -1,0 +1,64 @@
+\subsection*{Solution}
+
+Given inner product: $\langle u, v \rangle = 2u_1v_1 + u_2v_2$
+
+Vectors:
+\[
+a_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 2 \\ 0 \end{pmatrix}
+\]
+
+\textbf{Step 1: Set $v_1 = a_1$}
+\[
+v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\]
+
+\textbf{Step 2: Find $v_2 = a_2 - \text{proj}_{v_1} a_2$}
+
+Calculate $\langle a_2, v_1 \rangle$:
+\[
+\langle a_2, v_1 \rangle = 2(2)(1) + (0)(1) = 4 + 0 = 4
+\]
+
+Calculate $\langle v_1, v_1 \rangle$:
+\[
+\langle v_1, v_1 \rangle = 2(1)(1) + (1)(1) = 2 + 1 = 3
+\]
+
+Projection:
+\[
+\text{proj}_{v_1} a_2 = \frac{\langle a_2, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 = \frac{4}{3} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 4/3 \\ 4/3 \end{pmatrix}
+\]
+
+Find $v_2$:
+\[
+v_2 = a_2 - \text{proj}_{v_1} a_2 = \begin{pmatrix} 2 \\ 0 \end{pmatrix} - \begin{pmatrix} 4/3 \\ 4/3 \end{pmatrix} = \begin{pmatrix} 2/3 \\ -4/3 \end{pmatrix}
+\]
+
+\textbf{Step 3: Normalize}
+
+For $v_1$:
+\[
+\|v_1\|^2 = \langle v_1, v_1 \rangle = 3
+\]
+\[
+\|v_1\| = \sqrt{3}
+\]
+\[
+e_1 = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\]
+
+For $v_2$:
+\[
+\|v_2\|^2 = \langle v_2, v_2 \rangle = 2(2/3)^2 + (-4/3)^2 = 2 \cdot \frac{4}{9} + \frac{16}{9} = \frac{8}{9} + \frac{16}{9} = \frac{24}{9} = \frac{8}{3}
+\]
+\[
+\|v_2\| = \sqrt{\frac{8}{3}} = \frac{2\sqrt{2}}{\sqrt{3}} = \frac{2\sqrt{6}}{3}
+\]
+\[
+e_2 = \frac{1}{\|v_2\|} v_2 = \frac{3}{2\sqrt{6}} \begin{pmatrix} 2/3 \\ -4/3 \end{pmatrix} = \frac{1}{2\sqrt{6}} \begin{pmatrix} 2 \\ -4 \end{pmatrix} = \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \end{pmatrix}
+\]
+
+The orthonormal basis is:
+\[
+\left\{ \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -2 \end{pmatrix} \right\}
+\]
